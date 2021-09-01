@@ -63,6 +63,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/token")
+@SuppressWarnings("all")
 public class PigTokenEndpoint {
 
 	private final ClientDetailsService clientDetailsService;

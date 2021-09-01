@@ -36,9 +36,9 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
  * @date 2019/2/1 异常处理,重写oauth 默认实现
  */
 @Slf4j
-public class PigWebResponseExceptionTranslator implements WebResponseExceptionTranslator {
+public class PigWebResponseExceptionTranslator implements WebResponseExceptionTranslator<OAuth2Exception> {
 
-	private ThrowableAnalyzer throwableAnalyzer = new DefaultThrowableAnalyzer();
+	private final ThrowableAnalyzer throwableAnalyzer = new DefaultThrowableAnalyzer();
 
 	@Override
 	@SneakyThrows
@@ -88,6 +88,7 @@ public class PigWebResponseExceptionTranslator implements WebResponseExceptionTr
 
 	}
 
+	@SuppressWarnings("AlibabaLowerCamelCaseVariableNaming")
 	private ResponseEntity<OAuth2Exception> handleOAuth2Exception(OAuth2Exception e) {
 
 		int status = e.getHttpErrorCode();
